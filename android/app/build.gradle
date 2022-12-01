@@ -313,5 +313,5 @@ def isNewArchitectureEnabled() {
 }
 
 task printVersionName {
-  println android.defaultConfig.versionName
+  println "${android.defaultConfig.versionName}"
 }
