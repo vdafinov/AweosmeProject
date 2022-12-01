@@ -21,6 +21,14 @@ jobs:
         
       - name: Test
         run: echo $GITHUB_SHA_SHORT
+        
+      - name: Tag Release
+        run: |
+          version_name=${GITHUB_SHA_SHORT##*/}
+          echo "Tagging release with tag $GITHUB_SHA_SHORT"
+          git tag $version_name release/$GITHUB_SHA_SHORT
+          git push origin --tags
+
           
 #       - name : Retrieve Version
 #         run: |
