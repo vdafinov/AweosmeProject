@@ -18,8 +18,12 @@ jobs:
           
       - name : Retrieve Version
         run: |
-         echo "::set-output name=VERSION_NAME::$(${{github.workspace}}/android/gradlew printVersionName)"
+          cd android && ./gradlew printVersionName
         id: android_version
+        
+      - name : Retrieve Version
+        run: |
+         echo "::set-output name=VERSION_NAME::$(${{github.workspace}}/android/gradlew printVersionName)"
         
       - name: Get version
         run: |
