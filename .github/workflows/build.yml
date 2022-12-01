@@ -18,7 +18,7 @@ jobs:
           
       - name : Retrieve Version
         run: |
-          cd android && ./gradlew printVersionName
+          cd android && ./gradlew -q printVersionName
         id: android_version
         
       - name : Retrieve Version
