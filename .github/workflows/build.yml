@@ -23,7 +23,7 @@ jobs:
         
       - name : Retrieve Version
         run: |
-         echo "::set-output name=VERSION_NAME::$(android/gradlew -q printVersionName)"
+         echo "::set-output name=VERSION_NAME::$(/gradlew -q printVersionName)"
         
       - name: Get version
         run: |
