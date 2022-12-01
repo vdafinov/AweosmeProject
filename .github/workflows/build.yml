@@ -24,9 +24,9 @@ jobs:
         
       - name: Tag Release
         run: |
-          version_name=${GITHUB_ENV##*/}
-          echo "Tagging release with tag" ${$GITHUB_ENV}
-          git tag $version_name release/$GITHUB_ENV
+          version_name=${env.GITHUB_ENV##*/}
+          echo "Tagging release with tag" ${$env.GITHUB_ENV}
+          git tag $version_name release/$env.GITHUB_ENV
           git push origin --tags
 
           
