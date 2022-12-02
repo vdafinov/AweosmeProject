@@ -39,7 +39,8 @@ const Section = ({children, title}): Node => {
             color: isDarkMode ? Colors.white : Colors.black,
           },
         ]}>
-          Dummy change 1
+          <>Dummy change 1</>
+          <>Dummy change 2</>
         {title}
       </Text>
       <Text
