@@ -6,41 +6,34 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-      - name: Install npm dependencies
-        run: |
-          npm install
+#       - uses: actions/setup-node@v3
+#         with:
+#           node-version: '16'
+#       - name: Install npm dependencies
+#         run: |
+#           npm install
       
-      - name: Make gradlew executable
-        run: cd android && chmod +x ./gradlew
+#       - name: Make gradlew executable
+#         run: cd android && chmod +x ./gradlew
         
-      - name: Set BUILD VERSION
-        run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
+#       - name: Set BUILD VERSION
+#         run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
         
-      - name: Test
-        run: echo ${{ env.GITHUB_ENV }}
+#       - name: Test
+#         run: echo ${{ env.GITHUB_ENV }}
         
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
-        with:
-          find: "hello"
-          replace: "world"
-          regex: false
-        
-      - name: Tag Release
-        run: |
-          version_name=${{ env.GITHUB_ENV }}
-          echo "Tagging release with tag" ${{ env.GITHUB_ENV }}
-          git tag ${{ env.GITHUB_ENV }}
-          git push origin --tags
+#       - name: Tag Release
+#         run: |
+#           version_name=${{ env.GITHUB_ENV }}
+#           echo "Tagging release with tag" ${{ env.GITHUB_ENV }}
+#           git tag ${{ env.GITHUB_ENV }}
+#           git push origin --tags
 
       - name: Increment value
         uses: yoichiro/gh-action-increment-value@main
         with:
-          target_directory: 'foobar/baz'
-          target_file: 'build_number.json'
+          target_directory: 'android/app'
+          target_file: 'build.gradle'
           prefix: 'versionName "'
           suffix: '"'
           commit_message: 'Increment the build number to '
