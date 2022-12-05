@@ -37,7 +37,7 @@ jobs:
       - name: Increment value
         uses: yoichiro/gh-action-increment-value@main
         with:
-          target_directory: 'AweosmeProject/android/app/'
+          target_directory: 'android/app/'
           target_file: 'build.gradle'
           prefix: 'versionCode 232'
           suffix: 'versionName'
