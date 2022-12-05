@@ -39,25 +39,25 @@ jobs:
         with:
           java-version: 1.8
           
-      - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
-        with:
-          find: "versionCode"
-          replace: "versionCode1111"
-          regex: true
-          
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          
-#       - name: Bump version
-#         uses: chkfung/android-version-actions@v1.1
+#       - name: Find and Replace
+#         uses: jacobtomlinson/gha-find-replace@v2
 #         with:
-#           gradlePath: android/app/build.gradle # or app/build.gradle.kts 
-#           versionCode: 123
-#           versionName: 1.0.0
+#           find: "versionCode"
+#           replace: "versionCode1111"
+#           regex: true
+          
+#       - name: Push changes
+#         uses: ad-m/github-push-action@v0.6.0
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           branch: ${{ github.ref }}
+          
+      - name: Bump version
+        uses: chkfung/android-version-actions@v1.1
+        with:
+          gradlePath: android/app/build.gradle # or app/build.gradle.kts 
+          versionCode: 123
+          versionName: 1.0.0
           
 #       - name : Retrieve Version
 #         run: |
