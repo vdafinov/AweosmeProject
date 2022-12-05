@@ -29,10 +29,19 @@ jobs:
 #           git tag ${{ env.GITHUB_ENV }}
 #           git push origin --tags
 
-      - name: Run build script
-        run: |
-          sed -i "s/231/232/" android/app/build.gradle --debug
-        shell: bash
+#       - name: Run build script
+#         run: |
+#           sed -i "s/231/232/" android/app/build.gradle --debug
+#         shell: bash
+
+      - name: Increment value
+        uses: yoichiro/gh-action-increment-value@main
+        with:
+          target_directory: 'android/app/'
+          target_file: 'build.gradle '
+          prefix: 'versionCode 232'
+          suffix: 'versionName'
+          commit_message: 'Increment the build number to '
           
 #       - name : Retrieve Version
 #         run: |
