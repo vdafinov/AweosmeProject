@@ -1,4 +1,4 @@
-apply plugin: NaNversionName "NaN"com.android.application"
+apply plugin: NaNversionName "1.0.0"
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -138,7 +138,7 @@ android {
         applicationId "com.awesomeproject"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 231
+        versionCode 123
         versionName "1.231"
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
 
