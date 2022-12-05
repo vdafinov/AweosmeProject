@@ -5,6 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
       
 #       - uses: actions/setup-node@v3
 #         with:
@@ -59,12 +61,9 @@ jobs:
           versionCode: 123
           versionName: 1.0.0
           
-      - name: Tag Release
-        run: |
-          git add .
-          git commit -m "Updated version"
-          git tag ${{ env.GITHUB_ENV }}
-          git push origin --tags
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Updated version
           
 #       - name : Retrieve Version
 #         run: |
