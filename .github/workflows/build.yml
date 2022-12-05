@@ -46,6 +46,12 @@ jobs:
           replace: "232"
           regex: true
           
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          
 #       - name: Bump version
 #         uses: chkfung/android-version-actions@v1.1
 #         with:
