@@ -59,6 +59,13 @@ jobs:
           versionCode: 123
           versionName: 1.0.0
           
+      - name: Tag Release
+        run: |
+          git add .
+          git commit -m "Updated version"
+          git tag ${{ env.GITHUB_ENV }}
+          git push origin --tags
+          
 #       - name : Retrieve Version
 #         run: |
 #           cd android && ./gradlew -q printVersionName
