@@ -31,7 +31,7 @@ jobs:
 
       - name: Run build script
         run: |
-          sed -i "s/versionCode 231/versionCode 232/" android/app/build.gradle
+          sed -i "s/versionCode 231/versionCode 232/" android/app/build.gradle --debug
         shell: bash
           
 #       - name : Retrieve Version
