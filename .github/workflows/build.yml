@@ -46,7 +46,7 @@ jobs:
         with:
           find: "1.231"
           replace: "1.111"
-          regex: true
+          regex: false
           
 #       - name: Push changes
 #         uses: ad-m/github-push-action@v0.6.0
