@@ -33,7 +33,7 @@ jobs:
 
       - name: Run build script
         run: |
-          sed "s/231/232/g" android/app/build.gradle --debug
+          sed "s/versionName "1.231"/versionName "1.111"/g" android/app/build.gradle --debug
         shell: bash
 
       - name: set up JDK 1.8
