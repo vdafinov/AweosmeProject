@@ -34,14 +34,12 @@ jobs:
 #           sed -i "s/231/232/" android/app/build.gradle --debug
 #         shell: bash
 
-      - name: Increment value
-        uses: yoichiro/gh-action-increment-value@main
+      - name: Bump version
+        uses: chkfung/android-version-actions@v1.1
         with:
-          target_directory: 'android/app/'
-          target_file: 'build.gradle'
-          prefix: 'versionCode 232'
-          suffix: 'versionName'
-          commit_message: 'Increment the build number to '
+          gradlePath: app/build.gradle # or app/build.gradle.kts 
+          versionCode: 123
+          versionName: 1.0.0
           
 #       - name : Retrieve Version
 #         run: |
