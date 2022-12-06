@@ -21,7 +21,7 @@ jobs:
 #         run: cd android && chmod +x ./gradlew
         
       - name: Set BUILD VERSION
-        run: cd android && echo "NEW_VERSION_NUM=./gradlew -q printVersionName" >> $GITHUB_ENV
+        run: cd android && echo "NEW_VERSION_NUM=`./gradlew -q printVersionName`" >> $GITHUB_ENV
         
 #       - name: run number with offset
 #         run: |
