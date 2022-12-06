@@ -28,8 +28,11 @@ jobs:
       - name: Make gradlew executable
         run: cd android && chmod +x ./gradlew
         
-      - name: GET BUILD VERSION
-        run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
+      - name: GET NEW VERSION
+        run: cd android && echo GITHUB_ENV=`./gradlew -q printNewVersionName` >> $GITHUB_ENV
+        
+      - name: Install npm dependencies
+        run: set NEWVAR=
         
 #       - name: Run build script
 #         run: ./.github/scripts/build.sh
