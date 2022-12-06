@@ -315,3 +315,10 @@ def isNewArchitectureEnabled() {
 task printVersionName {
   println "${android.defaultConfig.versionName}"
 }
+
+task printNewVersionName {
+    BigDecimal bd = new BigDecimal(android.defaultConfig.versionName)
+    bd = new BigDecimal(bd.unscaledValue().add(BigInteger.ONE), bd.scale());
+    println "${bd}"
+
+}
