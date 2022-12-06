@@ -38,11 +38,11 @@ jobs:
 #         run: ./.github/scripts/build.sh
 #         shell: bash
         
-      - name: Display version
-        run: echo ${{ env.GITHUB_ENV }}
+#       - name: Display version
+#         run: echo ${{ env.GITHUB_ENV }}
         
       - name: Test
-        run: echo $(($GITHUB_ENV+1))
+        run: echo $(($GITHUB_ENV))
         
 #       - name: Tag Release
 #         run: |
