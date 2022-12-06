@@ -33,7 +33,7 @@ jobs:
 
       - name: Run build script
         run: |
-          sed -i "s/1.231/1.111/" android/app/build.gradle --debug
+          sed -i "s/versionName \"1.111\"/5.555/" android/app/build.gradle --debug
         shell: bash
 
       - name: set up JDK 1.8
@@ -58,8 +58,8 @@ jobs:
         uses: chkfung/android-version-actions@v1.1
         with:
           gradlePath: android/app/build.gradle # or app/build.gradle.kts 
-          versionCode: 111
-          versionName: "1.0.0"
+          versionCode: 555
+          versionName: "4.444"
           
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
