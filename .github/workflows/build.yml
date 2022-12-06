@@ -23,11 +23,13 @@ jobs:
       - name: Set BUILD VERSION
         run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
         
-      - name: Increment version
-        run: export nomera=5+1
+      - name: run number with offset
+        run: |
+          echo ::set-env name=NEW_VERSION_NUMBER::$((GITHUB_ENV+1))
+          - run: echo $NEW_VERSION_NUMBER
         
-      - name: Increment version
-        run: echo ${{ env.nomera }}
+#       - name: Increment version
+#         run: echo ${{ env.Newversion + 1 }}
         
       - name: Test
         run: echo ${{ env.GITHUB_ENV }}
