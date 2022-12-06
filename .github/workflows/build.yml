@@ -21,17 +21,17 @@ jobs:
 #         run: cd android && chmod +x ./gradlew
         
       - name: Set BUILD VERSION
-        run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
+        run: cd android && echo NEW_VERSION_NUM=`./gradlew -q printVersionName` >> $GITHUB_ENV
         
-      - name: run number with offset
-        run: |
-          echo ::set-env name=NEW_VERSION_NUMBER::$((1+1))
+#       - name: run number with offset
+#         run: |
+#           echo ::set-env name=NEW_VERSION_NUMBER::$((1+1))
         
 #       - name: Increment version
 #         run: echo ${{ env.NEW_VERSION_NUMBER }}
         
       - name: Test
-        run: echo ${{ env.GITHUB_ENV }}
+        run: echo ${{ env.NEW_VERSION_NUM }}
         
 #       - name: Tag Release
 #         run: |
