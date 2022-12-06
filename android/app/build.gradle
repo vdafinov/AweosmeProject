@@ -318,8 +318,18 @@ task getBuildVersion {
         bd = new BigDecimal(bd.unscaledValue().add(BigInteger.ONE), bd.scale());
         println "${bd}"
     }
-    
+
     if(project.hasProperty('currentversion')) {
         println "${android.defaultConfig.versionName}"
+    }
+
+    if(project.hasProperty('currentversioncode')) {
+        println "${android.defaultConfig.versionCode}"
+    }
+
+    if(project.hasProperty('newversioncode')) {
+        int versionCode = android.defaultConfig.versionCode.toInteger()
+        versionCode++
+        println "${versionCode}"
     }
 }
