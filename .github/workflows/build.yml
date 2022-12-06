@@ -18,11 +18,11 @@ jobs:
 #       - name: Make gradlew executable
 #         run: cd android && chmod +x ./gradlew
         
-#       - name: Set BUILD VERSION
-#         run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
+      - name: Set BUILD VERSION
+        run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
         
-#       - name: Test
-#         run: echo ${{ env.GITHUB_ENV }}
+      - name: Test
+        run: echo ${{ env.GITHUB_ENV }}
         
 #       - name: Tag Release
 #         run: |
@@ -33,7 +33,7 @@ jobs:
 
       - name: Run build script
         run: |
-          sed -i "s/versionName \"1.111\"/versionName \"5.555\"/" android/app/build.gradle --debug
+          sed -i "s/versionName \"1.111\"/versionName \"1.${{ env.GITHUB_ENV++ }}\"/" android/app/build.gradle --debug
         shell: bash
 
       - name: set up JDK 1.8
