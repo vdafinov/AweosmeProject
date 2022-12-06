@@ -78,7 +78,7 @@ jobs:
         with:
           gradlePath: android/app/build.gradle # or app/build.gradle.kts 
           versionCode: 555
-          versionName: "4.444"
+          versionName: "${{ env.newversion }}"
           
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
