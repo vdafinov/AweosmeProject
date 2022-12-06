@@ -28,14 +28,14 @@ jobs:
         run: cd android && chmod +x ./gradlew
         
       - name: GET NEW VERSION
-        run: cd android && echo GITHUB_ENV=`./gradlew -q printNewVersionName` >> $GITHUB_ENV
+        run: cd android && echo NEWNUM=`./gradlew -q printNewVersionName` >> $GITHUB_ENV
         
 #       - name: Run build script
 #         run: ./.github/scripts/build.sh
 #         shell: bash
         
       - name: Display version
-        run: echo ${{ env.GITHUB_ENV }}
+        run: echo ${{ env.NEWNUM }}
         
 #       - name: Test
 #         run: echo $(($GITHUB_ENV))
