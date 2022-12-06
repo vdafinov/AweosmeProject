@@ -27,7 +27,7 @@ jobs:
         run: export nomera=5+1
         
       - name: Increment version
-        run: echo $nomera
+        run: echo ${{ env.nomera }}
         
       - name: Test
         run: echo ${{ env.GITHUB_ENV }}
