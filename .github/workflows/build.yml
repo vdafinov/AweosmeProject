@@ -22,7 +22,7 @@ jobs:
         run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
         
       - name: Increment version
-        run: $GITHUB_ENV=$GITHUB_ENV+1
+        run: $GITHUB_ENV=$(($GITHUB_ENV+1))
         
       - name: Test
         run: echo ${{ env.GITHUB_ENV }}
