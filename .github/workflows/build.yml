@@ -31,7 +31,7 @@ jobs:
 #         run: echo ${{ env.NEW_VERSION_NUMBER }}
         
       - name: Test
-        run: echo ${{ env.NEW_VERSION_NUM }}
+        run: echo $NEW_VERSION_NUM
         
 #       - name: Tag Release
 #         run: |
