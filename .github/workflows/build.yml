@@ -21,7 +21,7 @@ jobs:
 #         run: cd android && chmod +x ./gradlew
         
       - name: Set BUILD VERSION
-        run: cd android && echo GITHUB_ENV=./gradlew -q printVersionName >> $GITHUB_ENV
+        run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
         
 #       - name: Run build script
 #         run: ./.github/scripts/build.sh
