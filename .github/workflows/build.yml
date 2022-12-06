@@ -25,7 +25,7 @@ jobs:
         
       - name: run number with offset
         run: |
-          echo ::set-env name=NEW_VERSION_NUMBER::$((GITHUB_ENV+1))
+          echo ::set-env name=NEW_VERSION_NUMBER::$((1+1))
         
 #       - name: Increment version
 #         run: echo ${{ env.NEW_VERSION_NUMBER }}
