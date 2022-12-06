@@ -3,6 +3,8 @@ on: workflow_dispatch
 jobs:
   install-and-test:
     runs-on: ubuntu-latest
+    env:
+      Newversion: 1
     steps:
       - uses: actions/checkout@v3
         with:
@@ -25,7 +27,7 @@ jobs:
         run: export nomera=5+1
         
       - name: Increment version
-        run: env
+        run: echo $nomera
         
       - name: Test
         run: echo ${{ env.GITHUB_ENV }}
