@@ -17,8 +17,8 @@ jobs:
 #         run: |
 #           npm install
       
-#       - name: Make gradlew executable
-#         run: cd android && chmod +x ./gradlew
+      - name: Make gradlew executable
+        run: cd android && chmod +x ./gradlew
         
       - name: Set BUILD VERSION
         run: cd android && echo GITHUB_ENV=`./gradlew -q printVersionName` >> $GITHUB_ENV
