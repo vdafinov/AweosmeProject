@@ -10,41 +10,32 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           
-#       - name: Find JIRA ticket references
-#         id: jira
-#         uses: AsasInnab/regex-action@v1
-#         with:
-#           regex_pattern: '(?<=versionCode).*(?=versionName)'
-#           regex_flags: 'gim'
-#           search_string: ' My jira ticket number is JIR-12345'
-#       - name: Echo JIRA reference
-#         run: echo "My JIRA ticket number is ${{ steps.jira.outputs.first_match }}"
           
-#       - name: Cache npm dependencies
-#         uses: actions/cache@v2
-#         with:
-#           path: '~/.npm'
-#           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-#           restore-keys: |
-#             ${{ runner.os }}-node-
+      - name: Cache npm dependencies
+        uses: actions/cache@v2
+        with:
+          path: '~/.npm'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: '16'
-#       - name: Install npm dependencies
-#         run: |
-#           npm install
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install npm dependencies
+        run: |
+          npm install
       
-#       - name: Make gradlew executable
-#         run: cd android && chmod +x ./gradlew
-        
       - name: Make gradlew executable
-        run: | 
-          cat android/app/build.gradle | grep -Po '(?<=versionCode).*(?=versionName)'
+        run: cd android && chmod +x ./gradlew
+        
+#       - name: Make gradlew executable
+#         run: | 
+#           cat android/app/build.gradle | grep -Po '(?<=versionCode).*(?=versionName)'
         
         
-#       - name: Get current version from gradle.build
-#         run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` >> $GITHUB_ENV
+      - name: Get current version from gradle.build
+        run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` | cut-c1-5 >> $GITHUB_ENV
         
 #       - name:  Get new version from gradle.build
 #         run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion` >> $GITHUB_ENV
