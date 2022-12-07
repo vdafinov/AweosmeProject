@@ -35,7 +35,7 @@ jobs:
         
         
       - name: Get current version from gradle.build
-        run: cd android && currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` | echo cut-c1-5 >> $GITHUB_ENV
+        run: cd android && currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` | echo cut c1-3 >> $GITHUB_ENV
         
 #       - name:  Get new version from gradle.build
 #         run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion` >> $GITHUB_ENV
