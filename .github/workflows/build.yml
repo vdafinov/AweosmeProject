@@ -47,7 +47,7 @@ jobs:
 #         run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode` >> $GITHUB_ENV
         
       - name: Display version
-        run: echo ${{ env.currentversion }} | cut -c1-2 
+        run: echo ${{ env.currentversion }} | cut -c1-5 
         
 #       - name: Tag Release
 #         run: |
