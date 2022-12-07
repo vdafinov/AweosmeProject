@@ -38,13 +38,13 @@ jobs:
         run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion &> /dev/null | cut -c1-5 `  >> $GITHUB_ENV
         
       - name:  Get new version from gradle.build
-        run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion | cut -c1-3` >> $GITHUB_ENV
+        run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion &> /dev/null | cut -c1-3` >> $GITHUB_ENV
         
       - name: Get current version code from gradle.build
-        run: cd android && echo currentversioncode=`./gradlew -q getBuildVersion -Pcurrentversioncode | cut -c1-5` >> $GITHUB_ENV
+        run: cd android && echo currentversioncode=`./gradlew -q getBuildVersion -Pcurrentversioncode &> /dev/null | cut -c1-5` >> $GITHUB_ENV
         
       - name:  Get new version code from gradle.build
-        run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode  | cut -c1-3` >> $GITHUB_ENV
+        run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode &> /dev/null | cut -c1-3` >> $GITHUB_ENV
         
 #       - name: Display version
 #         run: ${{ env.currentversion }}
