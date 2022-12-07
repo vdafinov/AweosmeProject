@@ -31,17 +31,21 @@ jobs:
       - name: Make gradlew executable
         run: cd android && chmod +x ./gradlew
         
-      - name: Get current version from gradle.build
-        run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` >> $GITHUB_ENV
+      - name: Make gradlew executable
+        run wget --regex-type pcre --accept-regex "versionCode(?s)(.*)versionName\" android/app/build.gradle
         
-      - name:  Get new version from gradle.build
-        run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion` >> $GITHUB_ENV
         
-      - name: Get current version code from gradle.build
-        run: cd android && echo currentversioncode=`./gradlew -q getBuildVersion -Pcurrentversioncode` >> $GITHUB_ENV
+#       - name: Get current version from gradle.build
+#         run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` >> $GITHUB_ENV
         
-      - name:  Get new version code from gradle.build
-        run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode` >> $GITHUB_ENV
+#       - name:  Get new version from gradle.build
+#         run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion` >> $GITHUB_ENV
+        
+#       - name: Get current version code from gradle.build
+#         run: cd android && echo currentversioncode=`./gradlew -q getBuildVersion -Pcurrentversioncode` >> $GITHUB_ENV
+        
+#       - name:  Get new version code from gradle.build
+#         run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode` >> $GITHUB_ENV
         
 #       - name: Display version
 #         run: echo ${{ env.NEWNUM }}
@@ -58,16 +62,16 @@ jobs:
 #         with:
 #           java-version: 1.8
           
-      - name: Bump version
-        uses: chkfung/android-version-actions@v1.1
-        with:
-          gradlePath: android/app/build.gradle # or app/build.gradle.kts 
-          versionCode: ${{ env.newversioncode }}
-          versionName: "${{ env.newversion }}"
+#       - name: Bump version
+#         uses: chkfung/android-version-actions@v1.1
+#         with:
+#           gradlePath: android/app/build.gradle # or app/build.gradle.kts 
+#           versionCode: ${{ env.newversioncode }}
+#           versionName: "${{ env.newversion }}"
           
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Updated version in gradle.build
+#       - uses: stefanzweifel/git-auto-commit-action@v4
+#         with:
+#           commit_message: Updated version in gradle.build
           
 #       - name : Retrieve Version
 #         run: |
