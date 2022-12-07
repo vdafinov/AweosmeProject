@@ -10,15 +10,15 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
           
-      - name: Find JIRA ticket references
-        id: jira
-        uses: AsasInnab/regex-action@v1
-        with:
-          regex_pattern: '(?<=versionCode).*(?=versionName)'
-          regex_flags: 'gim'
-          search_string: ' My jira ticket number is JIR-12345'
-      - name: Echo JIRA reference
-        run: echo "My JIRA ticket number is ${{ steps.jira.outputs.first_match }}"
+#       - name: Find JIRA ticket references
+#         id: jira
+#         uses: AsasInnab/regex-action@v1
+#         with:
+#           regex_pattern: '(?<=versionCode).*(?=versionName)'
+#           regex_flags: 'gim'
+#           search_string: ' My jira ticket number is JIR-12345'
+#       - name: Echo JIRA reference
+#         run: echo "My JIRA ticket number is ${{ steps.jira.outputs.first_match }}"
           
 #       - name: Cache npm dependencies
 #         uses: actions/cache@v2
@@ -38,8 +38,8 @@ jobs:
 #       - name: Make gradlew executable
 #         run: cd android && chmod +x ./gradlew
         
-#       - name: Make gradlew executable
-#         run: cd android/app && grep '(?<=versionCode).*(?=versionName)' build.gradle
+      - name: Make gradlew executable
+        run: cd android/app && grep -oP '(?<=versionCode).*(?=versionName)' build.gradle
         
         
 #       - name: Get current version from gradle.build
