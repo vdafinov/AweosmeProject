@@ -46,8 +46,8 @@ jobs:
 #       - name:  Get new version code from gradle.build
 #         run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode` >> $GITHUB_ENV
         
-#       - name: Display version
-#         run: echo ${{ env.NEWNUM }}
+      - name: Display version
+        run: echo ${{ env.currentversion }}
         
 #       - name: Tag Release
 #         run: |
