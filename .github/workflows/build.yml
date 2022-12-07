@@ -1,6 +1,5 @@
 name: react-native-android-build-apk
-on: 
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   install-and-test:
