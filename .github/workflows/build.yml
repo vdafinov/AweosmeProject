@@ -47,7 +47,14 @@ jobs:
 #         run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode` >> $GITHUB_ENV
         
       - name: Display version
-        run: echo ${{ env.currentversion }} | cut -c1-5 
+        run: ${{ env.currentversion }} | cut -c1-5 
+        
+      - name: Bump version
+        uses: chkfung/android-version-actions@v1.1
+        with:
+          gradlePath: android/app/build.gradle
+          versionCode: ${{ env.newversioncode }} | cut -c1-3
+          versionName: "${{ env.newversion }}  | cut -c1-5 "
         
 #       - name: Tag Release
 #         run: |
