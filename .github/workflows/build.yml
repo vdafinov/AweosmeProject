@@ -29,7 +29,7 @@ jobs:
         run: cd android && chmod +x ./gradlew
         
       - name: Make gradlew executable
-        run: cd android/app && grep '(?<=versionCode).*(?=versionName)' build.gradle
+        run: cd android/app && grep versionName build.gradle
         
         
 #       - name: Get current version from gradle.build
