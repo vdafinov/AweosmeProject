@@ -39,7 +39,8 @@ jobs:
 #         run: cd android && chmod +x ./gradlew
         
       - name: Make gradlew executable
-        run: cd android/app && grep -oP (?<=versionCode).*(?=versionName) build.gradle
+        run: | 
+          echo ::set-env name=TAG_NAME::$(cat android/app/build.gradle | grep -Po '(?<=versionCode).*(?=versionName)')
         
         
 #       - name: Get current version from gradle.build
