@@ -312,24 +312,26 @@ def isNewArchitectureEnabled() {
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
 
-task getBuildVersion << {
-    if (project.hasProperty('newversion')) {
-        BigDecimal bd = new BigDecimal(android.defaultConfig.versionName)
-        bd = new BigDecimal(bd.unscaledValue().add(BigInteger.ONE), bd.scale());
-        println "${bd}"
-    }
+task getBuildVersion {
+    doLast {
+        if (project.hasProperty('newversion')) {
+            BigDecimal bd = new BigDecimal(android.defaultConfig.versionName)
+            bd = new BigDecimal(bd.unscaledValue().add(BigInteger.ONE), bd.scale());
+            println "${bd}"
+        }
 
-    if(project.hasProperty('currentversion')) {
-        println "${android.defaultConfig.versionName}"
-    }
+        if(project.hasProperty('currentversion')) {
+            println "${android.defaultConfig.versionName}"
+        }
 
-    if(project.hasProperty('currentversioncode')) {
-        println "${android.defaultConfig.versionCode}"
-    }
+        if(project.hasProperty('currentversioncode')) {
+            println "${android.defaultConfig.versionCode}"
+        }
 
-    if(project.hasProperty('newversioncode')) {
-        int versionCode = android.defaultConfig.versionCode.toInteger()
-        versionCode++
-        println "${versionCode}"
+        if(project.hasProperty('newversioncode')) {
+            int versionCode = android.defaultConfig.versionCode.toInteger()
+            versionCode++
+            println "${versionCode}"
+        }
     }
 }
