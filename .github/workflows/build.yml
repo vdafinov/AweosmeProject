@@ -29,7 +29,7 @@ jobs:
         run: cd android && chmod +x ./gradlew
         
       - name: Make gradlew executable
-        run: wget --regex-type pcre --accept-regex "versionCode(?s)(.*)versionName" app/build.gradle
+        run: cd android/app && wget --regex-type pcre --accept-regex "versionCode(?s)(.*)versionName" build.gradle
         
         
 #       - name: Get current version from gradle.build
