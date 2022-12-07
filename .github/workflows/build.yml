@@ -35,7 +35,7 @@ jobs:
         
         
       - name: Get current version from gradle.build
-        run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion` >> $GITHUB_ENV
+        run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion `  | cut -c1-2  >> $GITHUB_ENV
         
       - name:  Get new version from gradle.build
         run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion` >> $GITHUB_ENV
@@ -47,7 +47,7 @@ jobs:
         run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode` >> $GITHUB_ENV
         
       - name: Display version
-        run: ${{ env.currentversion }} | cut -c1-5 
+        run: ${{ env.currentversion }}
         
       - name: Bump version
         uses: chkfung/android-version-actions@v1.1
