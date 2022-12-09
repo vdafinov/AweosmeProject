@@ -1,0 +1,28 @@
+name: IOS Develop Build
+
+on: workflow_dispatch
+
+jobs:
+  ios-build:
+    // if: ${{ github.ref == 'refs/heads/FA-633-publish-new-build-to-google-apple' }}
+    runs-on: macOS-latest
+    defaults:
+      run:
+        working-directory: ios
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+        
+      - name: Install npm dependencies
+        run: |
+          npm install
+          
+      - name: Setup Ruby (bundle)
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+          bundler-cache: true
+          
+      - name: Install Pods
+        run: pod install --repo-update && pwd && cd ..
