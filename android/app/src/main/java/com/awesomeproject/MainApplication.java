@@ -14,6 +14,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 
+import com.robinpowered.react.Intercom.IntercomPackage;
+import io.intercom.android.sdk.Intercom;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
