@@ -45,7 +45,7 @@ const Section = ({children, title}): Node => {
           <>Dummy change 1</>
           <>Dummy change 2</>
           <>Dummy change 3</>
-GITHUB ACTION SECRET-${{ env.TEST_SECRET }} - { process.env.TEST_SECRET }
+GITHUB ACTION SECRET- - { JSON.stringify(process.env.TEST_SECRET) }
           <>Dummy change 4</>
 nov-kod -{TEST_VERSION} - 
         {title}
