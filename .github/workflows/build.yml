@@ -29,32 +29,42 @@ jobs:
       - name: Make gradlew executable
         run: cd android && chmod +x ./gradlew
         
+      - name: Build Android Release
+        run: |
+          cd android && ./gradlew assembleRelease
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/
+        
 #       - name: Make gradlew executable
 #         run: | 
 #           cat android/app/build.gradle | grep -Po '(?<=versionCode).*(?=versionName)'
         
         
-      - name: Get current version from gradle.build
-        run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion | cut -c1-5 `  >> $GITHUB_ENV
+#       - name: Get current version from gradle.build
+#         run: cd android && echo currentversion=`./gradlew -q getBuildVersion -Pcurrentversion | cut -c1-5 `  >> $GITHUB_ENV
         
-      - name:  Get new version from gradle.build
-        run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion  | tail -n 1` >> $GITHUB_ENV
+#       - name:  Get new version from gradle.build
+#         run: cd android && echo newversion=`./gradlew -q getBuildVersion -Pnewversion  | tail -n 1` >> $GITHUB_ENV
         
-      - name: Get current version code from gradle.build
-        run: cd android && echo currentversioncode=`./gradlew -q getBuildVersion -Pcurrentversioncode | cut -c1-5` >> $GITHUB_ENV
+#       - name: Get current version code from gradle.build
+#         run: cd android && echo currentversioncode=`./gradlew -q getBuildVersion -Pcurrentversioncode | cut -c1-5` >> $GITHUB_ENV
         
-      - name:  Get new version code from gradle.build
-        run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode | tail -n 1` >> $GITHUB_ENV
+#       - name:  Get new version code from gradle.build
+#         run: cd android && echo newversioncode=`./gradlew -q getBuildVersion -Pnewversioncode | tail -n 1` >> $GITHUB_ENV
         
 #       - name: Display version
 #         run: ${{ env.currentversion }}
         
-      - name: Bump version
-        uses: chkfung/android-version-actions@v1.1
-        with:
-          gradlePath: android/app/build.gradle
-          versionCode: ${{ env.newversioncode }}
-          versionName: "${{ env.newversion }}"
+#       - name: Bump version
+#         uses: chkfung/android-version-actions@v1.1
+#         with:
+#           gradlePath: android/app/build.gradle
+#           versionCode: ${{ env.newversioncode }}
+#           versionName: "${{ env.newversion }}"
         
 #       - name: Tag Release
 #         run: |
