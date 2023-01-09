@@ -46,7 +46,7 @@ const Section = ({children, title}): Node => {
           <>Dummy change 2</>
           <>Dummy change 3</>
           <>Dummy change 4</>
-{TEST_VERSION}
+nov-kod -{TEST_VERSION} - 
         {title}
       </Text>
       <Text
