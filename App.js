@@ -25,6 +25,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {TEST_VERSION} from '@env';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -43,6 +44,7 @@ const Section = ({children, title}): Node => {
           <>Dummy change 2</>
           <>Dummy change 3</>
           <>Dummy change 4</>
+{TEST_VERSION}
         {title}
       </Text>
       <Text
