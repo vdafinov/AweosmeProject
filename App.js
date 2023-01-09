@@ -25,7 +25,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import {TEST_VERSION} from '@env';
+
+import Config from 'react-native-config';
+const { TEST_VERSION } = Config;
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
